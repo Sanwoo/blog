@@ -33,31 +33,28 @@ tags:
 
 # 模板字符串``
 
-> 可以声明字符串
+## 可以声明字符串
+> ```js
+> const a = `i am`
+> console.log(a); // i am
+> ```
+
+## 可以出现换行符
+> 如果是''和""这样写则会报错
 >
-> > ```js
-> > const a = `i am`
-> > console.log(a); // i am
-> > ```
->
-> 可以出现换行符
->
-> > 如果是''和""这样写则会报错
-> >
-> > ```js
-> > const names = `<ul>
-> >                 <li>夏竹</li>
-> >                 <li>王多鱼</li>
-> >                 </ul>`
-> > ```
->
-> 字符串拼接
->
-> > ```js
-> > const a = 'jay'
-> > const b = `我喜欢听${a}的歌`
-> > console.log(b); //我喜欢听jay的歌
-> > ```
+> ```js
+> const names = `<ul>
+>                 <li>夏竹</li>
+>                 <li>王多鱼</li>
+>                 </ul>`
+> ```
+
+## 字符串拼接
+> ```js
+> const a = 'jay'
+> const b = `我喜欢听${a}的歌`
+> console.log(b); //我喜欢听jay的歌
+> ```
 
 # 对象里面写函数作为对象属性，省略: function
 
@@ -89,29 +86,20 @@ tags:
 >
 > 花括号中的函数体只有一条return xxx语句时，可以省略花括号和return关键字
 >
-> ==与普通函数的区别==
->
-> > 声明方式不同
-> >
-> > > 普通函数用function，箭头函数小括号加箭头
-> >
-> > 匿名函数
-> >
-> > > 普通函数既可以匿名也可以具名，箭头函数只能匿名然后赋值给变量
-> >
-> > this指向
-> >
-> > > 普通函数this指向最后一次调用它的对象，箭头函数指向父级上下文的this
-> >
-> > 箭头函数的this永远不会改变，即使是call、apply、bind
-> >
-> > 箭头函数没有原型prototype
-> >
-> > 箭头函数没arguments，只有rest
-> >
-> > 箭头函数不能作为构造函数new
-> >
-> > 箭头函数的参数不能重名
+## 与普通函数的区别
+声明方式不同
+> 普通函数用function，箭头函数小括号加箭头
+
+匿名函数
+> 普通函数既可以匿名也可以具名，箭头函数只能匿名然后赋值给变量
+
+this指向
+> 普通函数this指向最后一次调用它的对象，箭头函数指向父级上下文的this
+箭头函数的this永远不会改变，即使是call、apply、bind
+箭头函数没有原型prototype
+箭头函数没arguments，只有rest
+箭头函数不能作为构造函数new
+箭头函数的参数不能重名
 
 # 函数参数赋值初始值
 
@@ -166,7 +154,7 @@ tags:
 > console.log(c === d) // true
 > ```
 >
-> 和 `Symbol()` 不同的是，用 `Symbol.for()` 方法创建的的 symbol 会被放入一个全局 symbol 注册表中。`Symbol.for() 并不是每次都会创建一个新的 symbol`，它会首先检查给定的 key 是否已经在注册表中了。假如是，则会直接返回上次存储的那个。否则，它会再新建一个。
+> 和 `Symbol()` 不同的是，用 `Symbol.for()` 方法创建的的 symbol 会被放入一个全局 symbol 注册表中。`Symbol.for()` 并不是每次都会创建一个新的 symbol，它会首先检查给定的 key 是否已经在注册表中了。假如是，则会直接返回上次存储的那个。否则，它会再新建一个。
 >
 > Symbol的值不能与其他的值进行运算
 
@@ -222,119 +210,119 @@ tags:
 >
 > constructor定义构造函数初始化，也就是构造方法(==这里写实例对象的属性==)
 >
-> > ```js
-> > class me {
-> >     constructor(name){
-> >         this.name = name
-> >     }
-> > }
-> > const a = new me('ljh')
-> > console.log(a.name); // 'ljh'
-> > ```
+> ```js
+> class me {
+>     constructor(name){
+>         this.name = name
+>     }
+> }
+> const a = new me('ljh')
+> console.log(a.name); // 'ljh'
+> ```
 >
 > 添加实例对象方法
 >
-> > ```js
-> > class phone {
-> >     constructor(brand, price){
-> >         this.brand = brand
-> >         this.price = price
-> >     }
-> >     log(){
-> >         console.log(this);
-> >     }
-> > }
-> > 
-> > const a = new phone('apple', '10000')
-> > a.log() 
-> > // phone { brand: 'apple', price: '10000' }
-> > ```
+> ```js
+> class phone {
+>     constructor(brand, price){
+>         this.brand = brand
+>         this.price = price
+>     }
+>     log(){
+>         console.log(this);
+>     }
+> }
+> 
+> const a = new phone('apple', '10000')
+> a.log() 
+> // phone { brand: 'apple', price: '10000' }
+> ```
 >
 > extends继承父类，super调用父级构造方法
 >
-> > ```js
-> > class phone {
-> >     constructor(brand, price){
-> >         this.brand = brand
-> >         this.price = price
-> >     }
-> >     log(){
-> >         console.log(this);
-> >     }
-> > }
-> > 
-> > class smartphone extends phone {
-> >     constructor(brand, price, color, size){
-> >         super(brand, price)
-> >         this.color = color
-> >         this.size = size
-> >     }
-> > }
-> > 
-> > const a = new smartphone('apple', '10000', 'black', 'big')
-> > a.log()
-> > // smartphone {brand: 'apple', price: '10000', color: 'black', size: 'big'}
-> > ```
+> ```js
+> class phone {
+>     constructor(brand, price){
+>         this.brand = brand
+>         this.price = price
+>     }
+>     log(){
+>         console.log(this);
+>     }
+> }
+> 
+> class smartphone extends phone {
+>     constructor(brand, price, color, size){
+>         super(brand, price)
+>         this.color = color
+>         this.size = size
+>     }
+> }
+> 
+> const a = new smartphone('apple', '10000', 'black', 'big')
+> a.log()
+> // smartphone {brand: 'apple', price: '10000', color: 'black', size: 'big'}
+> ```
 >
 > static定义静态方法和属性
 >
-> > ```js
-> > class me {
-> >     static name = 'ljh'
-> > }
-> > 
-> > const a = new me()
-> > console.log(me.name); // ljh
-> > console.log(a.name); // undefined
-> > ```
+> ```js
+> class me {
+>     static name = 'ljh'
+> }
+> 
+> const a = new me()
+> console.log(me.name); // ljh
+> console.log(a.name); // undefined
+> ```
 >
 > 父类方法可以重写
 >
-> > 在子类中重写重名方法将其覆盖即可
-> >
-> > ```js
-> > class phone {
-> >     constructor(brand, price){
-> >         this.brand = brand
-> >         this.price = price
-> >     }
-> >     log(){
-> >         console.log(this);
-> >     }
-> > }
-> > 
-> > class smartphone extends phone {
-> >     constructor(brand, price, color, size){
-> >         super(brand, price)
-> >         this.color = color
-> >         this.size = size
-> >     }
-> >     log(){
-> >         console.log('我重写啦');
-> >     }
-> > }
-> > 
-> > const a = new smartphone('apple', '10000', 'black', 'big')
-> > a.log() // '我重写啦'
-> > ```
+> 在子类中重写重名方法将其覆盖即可
+>
+> ```js
+> class phone {
+>     constructor(brand, price){
+>         this.brand = brand
+>         this.price = price
+>     }
+>     log(){
+>         console.log(this);
+>     }
+> }
+> 
+> class smartphone extends phone {
+>     constructor(brand, price, color, size){
+>         super(brand, price)
+>         this.color = color
+>         this.size = size
+>     }
+>     log(){
+>         console.log('我重写啦');
+>     }
+> }
+> 
+> const a = new smartphone('apple', '10000', 'black', 'big')
+> a.log() // '我重写啦'
+> ```
 >
 > getter和setter
 >
-> > ```js
-> > class phone {
-> >     get price(){
-> >         console.log('getter辣');
-> >         return 'hoho'
-> >     }
-> > 
-> >     set price(newprice){
-> >         console.log('setter辣');
-> >     }
-> > }
-> > const a = new phone()
-> > console.log(a.price);// 'getter辣'  //'hoho'
-> > a.price = 'free' // 'setter辣'
-> > ```
+> ```js
+> class phone {
+>     get price(){
+>         console.log('getter辣');
+>         return 'hoho'
+>     }
+> 
+>     set price(newprice){
+>         console.log('setter辣');
+>     }
+> }
+> const a = new phone()
+> console.log(a.price);// 'getter辣'  //'hoho'
+> a.price = 'free' // 'setter辣'
+> ```
 
 # 数字扩展
 
@@ -346,27 +334,27 @@ tags:
 >
 > 支持二进制和八进制写法
 >
-> > ```js
-> > const a = 0b1010
-> > const b = 0o777
-> > const c = 100
-> > console.log(a, b, c); // 10 511 100
-> > ```
+> ```js
+> const a = 0b1010
+> const b = 0o777
+> const c = 100
+> console.log(a, b, c); // 10 511 100
+> ```
 >
 > Number.isFinite判断数是不是有限的
 >
-> > ```js
-> > console.log(Number.isFinite(100)); // true
-> > console.log(Number.isFinite(100/0)); // false
-> > console.log(Number.isFinite(Infinity)); // false
-> > ```
+> ```js
+> console.log(Number.isFinite(100)); // true
+> console.log(Number.isFinite(100/0)); // false
+> console.log(Number.isFinite(Infinity)); // false
+> ```
 >
 > Numebr.isNaN 判断是不是NaN
 >
-> > ```js
-> > console.log(Number.isNaN(100)); // false
-> > console.log(Number.isNaN(NaN)); // true
-> > ```
+> ```js
+> console.log(Number.isNaN(100)); // false
+> console.log(Number.isNaN(NaN)); // true
+> ```
 >
 > Number.parseInt和Number.parseFloat将字符串转整数
 >
@@ -380,163 +368,159 @@ tags:
 
 > Object.is判断两个值是否完全相等，大致上相当于===，但是NaN是个特例
 >
-> > ```js
-> > console.log(NaN === NaN); //false
-> > console.log(Object.is(NaN, NaN)); // true
-> > ```
+> ```js
+> console.log(NaN === NaN); //false
+> console.log(Object.is(NaN, NaN)); // true
+> ```
 >
 > Object.assign将除第一个参数以外的其他参数合并到第一个参数对象身上，相同的属性覆盖，不同的属性添加
 >
 > Object.setPrototypeOf()方法设置一个指定的对象的原型 ( 即，内部 [[Prototype]] 属性）到另一个对象或 [`null`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/null)。
 >
-> > ```js
-> > const a = {
-> >     name: 'ljh'
-> > }
-> > 
-> > const b = {
-> >     age: 18
-> > }
-> > 
-> > Object.setPrototypeOf(a , b)
-> > console.log(a);
-> > ```
-> >
-> > ![image-20220816185159388](picture/image-20220816185159388.png)
+> ```js
+> const a = {
+>     name: 'ljh'
+> }
+> 
+> const b = {
+>     age: 18
+> }
+> 
+> Object.setPrototypeOf(a , b)
+> console.log(a);
+> ```
+>
+> ![image-20220816185159388](picture/image-20220816185159388.png)
 
 # import export
 
-> 命名导出（Named exports）
+## 命名导出（Named exports）
+> 命名导出无论怎样导出，引入的时候都需要{}
 >
-> > 命名导出无论怎样导出，引入的时候都需要{}
-> >
-> > ```js
-> > //------ lib.js ------
-> > const sqrt = Math.sqrt;
-> > function square(x) {
-> >     return x * x;
-> > }
-> > function diag(x, y) {
-> >     return sqrt(square(x) + square(y));
-> > }
-> > 
-> > export {sqrt, square, diag}
-> > 
-> > //------ main.js ------
-> > import { square, diag } from 'lib';				
-> > console.log(square(11)); // 121
-> > console.log(diag(4, 3)); // 5
-> > ```
-> >
-> > ```js
-> > //------ lib.js ------
-> > export const sqrt = Math.sqrt;
-> > export function square(x) {
-> >     return x * x;
-> > }
-> > export function diag(x, y) {
-> >     return sqrt(square(x) + square(y));
-> > }
-> > 
-> > //------ main.js ------
-> > import { square, diag } from 'lib';				
-> > console.log(square(11)); // 121
-> > console.log(diag(4, 3)); // 5
-> > ```
+> ```js
+> //------ lib.js ------
+> const sqrt = Math.sqrt;
+> function square(x) {
+>     return x * x;
+> }
+> function diag(x, y) {
+>     return sqrt(square(x) + square(y));
+> }
+> 
+> export {sqrt, square, diag}
+> 
+> //------ main.js ------
+> import { square, diag } from 'lib';				
+> console.log(square(11)); // 121
+> console.log(diag(4, 3)); // 5
+> ```
 >
-> 别名引入（Aliasing named imports）
+> ```js
+> //------ lib.js ------
+> export const sqrt = Math.sqrt;
+> export function square(x) {
+>     return x * x;
+> }
+> export function diag(x, y) {
+>     return sqrt(square(x) + square(y));
+> }
+> 
+> //------ main.js ------
+> import { square, diag } from 'lib';				
+> console.log(square(11)); // 121
+> console.log(diag(4, 3)); // 5
+> ```
 >
-> > 当从不同模块引入的变量名相同的时候
-> >
-> > ```javascript
-> > import {speak} from './cow.js'
-> > import {speak} from './goat.js'	
-> > 复制代码
-> > ```
-> >
-> > 这些写法显然会造成混乱
-> >
-> > 正确的方法是这样的
-> >
-> > ```javascript
-> > import {speak as cowSpeak} from './cow.js'
-> > import {speak as goatSpeak} from './goat.js'
-> > 复制代码
-> > ```
-> >
-> > 可是，当从每个模块需要引入的方法很多的时候，这种写法就显得十分的繁琐、冗长，例如
-> >
-> > ```javascript
-> > import {
-> >   speak as cowSpeak,
-> >   eat as cowEat,
-> >   drink as cowDrink
-> > } from './cow.js'
-> > 
-> > import {
-> >   speak as goatSpeak,
-> >   eat as goatEat,
-> >   drink as goatDrink
-> > } from './goat.js'
-> > 
-> > cowSpeak() // moo
-> > cowEat() // cow eats
-> > goatSpeak() // baa
-> > goatDrink() // goat drinks
-> > 复制代码
-> > ```
-> >
-> > 解决方案就是命名空间引入了
+## 别名引入（Aliasing named imports）
+> 当从不同模块引入的变量名相同的时候
 >
-> 命名空间引入（Namespace imports）
+> ```javascript
+> import {speak} from './cow.js'
+> import {speak} from './goat.js'	
+> 复制代码
+> ```
 >
-> > ```js
-> > import * as cow from './cow.js'
-> > import * as goat from './goat.js'
-> > 
-> > cow.speak() // moo
-> > goat.speak() // baa
-> > ```
+> 这些写法显然会造成混乱
 >
-> 默认导出（Default exports）
+> 正确的方法是这样的
 >
-> > 默认导出就不需要name了，但是一个js文件中只能有一个export default。
-> >
-> > ```javascript
-> > //------ myFunc.js ------
-> > export default function () { ... };
-> > 
-> > //------ main1.js ------
-> > import myFunc from 'myFunc';
-> > myFunc();
-> > ```
-> >
-> > 虽然export default只能有一个，但也可以导出多个方法。
-> >
-> > ```kotlin
-> > export default {
-> >   speak () {
-> >     return 'moo'
-> >   },
-> >   eat () {
-> >     return 'cow eats'
-> >   },
-> >   drink () {
-> >     return 'cow drinks'
-> >   }
-> > }
-> > 复制代码
-> > ```
-> >
-> > 引入与命名空间引入类似
-> >
-> > ```javascript
-> > import cow from './default-cow.js'
-> > import goat from './default-goat.js'
-> > 
-> > cow.speak() // moo
-> > goat.speak() // baa
-> > ```
+> ```javascript
+> import {speak as cowSpeak} from './cow.js'
+> import {speak as goatSpeak} from './goat.js'
+> 复制代码
+> ```
+>
+> 可是，当从每个模块需要引入的方法很多的时候，这种写法就显得十分的繁琐、冗长，例如
+>
+> ```javascript
+> import {
+>   speak as cowSpeak,
+>   eat as cowEat,
+>   drink as cowDrink
+> } from './cow.js'
+> 
+> import {
+>   speak as goatSpeak,
+>   eat as goatEat,
+>   drink as goatDrink
+> } from './goat.js'
+> 
+> cowSpeak() // moo
+> cowEat() // cow eats
+> goatSpeak() // baa
+> goatDrink() // goat drinks
+> 复制代码
+> ```
+>
+> 解决方案就是命名空间引入了
+>
+## 命名空间引入（Namespace imports）
+> ```js
+> import * as cow from './cow.js'
+> import * as goat from './goat.js'
+> 
+> cow.speak() // moo
+> goat.speak() // baa
+> ```
+>
+## 默认导出（Default exports）
+> 默认导出就不需要name了，但是一个js文件中只能有一个export default。
+>
+> ```javascript
+> //------ myFunc.js ------
+> export default function () { ... };
+> 
+> //------ main1.js ------
+> import myFunc from 'myFunc';
+> myFunc();
+> ```
+>
+> 虽然export default只能有一个，但也可以导出多个方法。
+>
+> ```kotlin
+> export default {
+>   speak () {
+>     return 'moo'
+>   },
+>   eat () {
+>     return 'cow eats'
+>   },
+>   drink () {
+>     return 'cow drinks'
+>   }
+> }
+> 复制代码
+> ```
+>
+> 引入与命名空间引入类似
+>
+> ```javascript
+> import cow from './default-cow.js'
+> import goat from './default-goat.js'
+> 
+> cow.speak() // moo
+> goat.speak() // baa
+> ```
 
 # Bigint
 
