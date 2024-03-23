@@ -4,4 +4,35 @@ base_info:
   author: 青嵐のあとで
   avatar: /images/yui.jpeg
   logo: /images/yui.jpeg
+
+toc:
+  enable: true      # Option values: true | false
+  number: false      # Option values: true | false
+  expand_all: true  # Option values: true | false
+  init_open: true    # Option values: true | false
+  layout: right      # Option values: left | right
   
+code_block:
+  tools:
+    enable: true             # Option values: true | false
+    style: default            # Option values: default | mac
+  highlight_theme: default    # Option values: default | obsidian
+
+lazyload:
+  enable: true  # Option values: true | false
+
+local_search:
+  enable: true      # Option values: true | false
+  preload: true     # Preload the search data when the page loads
+
+social_contact:
+  enable: true      # Option values: true | false
+  links:
+    github:          # GitHub
+    weixin: Ounces-         # WeChat
+    qq: 1277255458             # QQ
+    weibo:           # WeiBo
+    zhihu:           # ZhiHu
+    twitter:         # Twitter
+    facebook:        # Facebook
+    email: 1277255458@qq.com          # Email

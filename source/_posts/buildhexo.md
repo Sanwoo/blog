@@ -33,7 +33,7 @@ https://hexo.io/zh-cn/docs/github-pages
 
 创建pages.yml（记得加后缀名.yml否则不生效）
 
-```
+``` yml
 .github/workflows/pages.yml
 name: Pages
 

@@ -7,75 +7,40 @@ tags:
 ![](/images/image-20220725175548618.png)
 
 
-
+# 相关学习链接
 https://git-scm.com/book/zh/v2
 https://nulab.com/zh-cn/learn/software-development/git-tutorial/
 https://www.liaoxuefeng.com/wiki/896043488029600
 
-<br/>
+# .gitignore文件作用
+>.gitignore文件中的文件将不会被git add
 
-.gitignore文件中的文件将不会被git add
+# 开发前应先pull 
+>每次开发之前先pull
+>如果push时和远端版本不一致，那么add、commit之后再pull，否则可能会将本地代码覆盖
+
+# git push origin master:master
+```
+git push origin master:master
+// 将本地和远端的两个master分支关联，远端没有则顺便创建新分支，本地必须先有这个分支
+```
+
+# 本地查看远程分支和实际远程分支清单不一致
+[2020-12-18 Git 更新远程分支列表命令_海月汐辰的博客-CSDN博客_git刷新远程分支命令](https://blog.csdn.net/qq_37858386/article/details/111386170)
+```
+git remote update origin --prune
+
+// 或者
+
+git fetch origin
+```
 
 
-每次开发之前先pull
-如果push时和远端版本不一致，那么add、commit之后再pull，否则可能会将本地代码覆盖
-
-
-
-> git push origin master:master
-
-将本地和远端的两个master分支关联，远端没有则顺便创建新分支，本地必须先有这个分支
-
-
-
-###### 本地查看远程分支和实际远程分支清单不一致
-
-> git remote update origin --prune
->
-> 或者
->
-> git fetch origin
->
-> [2020-12-18 Git 更新远程分支列表命令_海月汐辰的博客-CSDN博客_git刷新远程分支命令](https://blog.csdn.net/qq_37858386/article/details/111386170)
-
-<br/>
-
+# git常用命令及手动关联git本地和远端仓库
 https://juejin.cn/post/6844903710007492621
+
+# 记Git报错-refusing to merge unrelated histories
 https://juejin.cn/post/6982454524317302792
-https://juejin.cn/post/6844904080276455437?searchId=20240315223948E0AC34C0F7C760321617
-规范是什么
-常见的分类有下面几种：
-
-build：修改项目的的构建系统（xcodebuild、webpack、glup等）的提交
-ci：修改项目的持续集成流程（Kenkins、Travis等）的提交
-chore：构建过程或辅助工具的变化
-docs：文档提交（documents）
-feat：新增功能（feature）
-fix：修复 bug
-pref：性能、体验相关的提交
-refactor：代码重构
-revert：回滚某个更早的提交
-style：不影响程序逻辑的代码修改、主要是样式方面的优化、修改
-test：测试相关的开发
-
-> 其实，执行添加了-u 参数的命令 git push -u origin master就相当于是执行了
-git push origin master 和
-git branch --set-upstream master origin/master
-后者是用于关联远程分支
-
-> 查看全局配置 
- git config --global user.name
- git config --global user.email
- 设置全局配置
- git config --global user.name "Your Name"
- git config --global user.email "email@example.com"
-
-> 移除远程仓库 
-git remote remove origin
-
-
- https://juejin.cn/post/6982454524317302792
-
 > 1、本地创建仓库且有内容，在git创建远程仓库且有readme文件
   2、在本地git remote add origin url关联远程仓库
   3、git add .  git commit -m 'msg'
@@ -84,5 +49,41 @@ git remote remove origin
   解决方法一：创建仓库时不要生成readme文件
   解决方法二：git pull --rebase origin master git push -u origin master
 
+# git规范
+https://juejin.cn/post/6844904080276455437?searchId=20240315223948E0AC34C0F7C760321617
+规范是什么
+常见的分类有下面几种：
+>build：修改项目的的构建系统（xcodebuild、webpack、glup等）的提交
+>ci：修改项目的持续集成流程（Kenkins、Travis等）的提交
+>chore：构建过程或辅助工具的变化
+>docs：文档提交（documents）
+>feat：新增功能（feature）
+>fix：修复 bug
+>pref：性能、体验相关的提交
+>refactor：代码重构
+>revert：回滚某个更早的提交
+>style：不影响程序逻辑的代码修改、主要是样式方面的优化、修改
+>test：测试相关的开发
 
-  test!!!!!!!!!!!!!!!!!!!
+# git push -u origin master
+> 其实，执行添加了-u 参数的命令 git push -u origin master就相当于是执行了
+git push origin master 和
+git branch --set-upstream master origin/master
+后者是用于关联远程分支
+
+# 查看全局配置 
+ ```
+ git config --global user.name
+ git config --global user.email
+ ```
+ 
+# 设置全局配置
+ ```
+ git config --global user.name "Your Name"
+ git config --global user.email "email@example.com"
+ ```
+
+# 移除远程仓库 
+```
+git remote remove origin
+```
