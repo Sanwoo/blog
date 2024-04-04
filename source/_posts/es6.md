@@ -160,62 +160,62 @@ this指向
 
 # 生成器Generator与迭代器
 ## 最简单生成器实例
->```js
->function* foo() {
->            
->}
->const res = foo()
->console.log(res)
->```
+> ```js
+> function* foo() {
+>             
+> }
+> const res = foo()
+> console.log(res)
+> ```
 >![img](images/generator1.png)
 ## 使用迭代器
->```js
->function* foo() {
->    yield "hello"
->    yield "world"
->    yield "welcome"
->}
->
->const res = foo()
->const res1 = res.next()
->const res2 = res.next()
->const res3 = res.next()
->const res4 = res.next()
->console.log(res1, res2, res3, res4)
->```
+> ```js
+> function* foo() {
+>     yield "hello"
+>     yield "world"
+>     yield "welcome"
+> }
+> 
+> const res = foo()
+> const res1 = res.next()
+> const res2 = res.next()
+> const res3 = res.next()
+> const res4 = res.next()
+> console.log(res1, res2, res3, res4)
+> ```
 >![img](images/generator2.png)
->```js
->function* foo() {
->    console.log('111')
->    yield "hello"
->    console.log('222')
->    yield "world"
->    console.log('333')
->    yield "welcome"
->}
->const res = foo()
->const res1 = res.next()
->console.log(res1)
->const res2 = res.next()
->console.log(res2)
->const res3 = res.next()
->console.log(res3)
->const res4 = res.next()
->console.log(res4)
->```
+> ```js
+> function* foo() {
+>     console.log('111')
+>     yield "hello"
+>     console.log('222')
+>     yield "world"
+>     console.log('333')
+>     yield "welcome"
+> }
+> const res = foo()
+> const res1 = res.next()
+> console.log(res1)
+> const res2 = res.next()
+> console.log(res2)
+> const res3 = res.next()
+> console.log(res3)
+> const res4 = res.next()
+> console.log(res4)
+> ```
 >![img](images/generator3.png)
 >练习，输出1-9数字
->```js
->function* foo() {
->    for (let index = 0; index < 10; index++) {
->        yield index
->    }
->}
->const res = foo()
->for (let index = 0; index < 10; index++) {
->    console.log(res.next().value);
->}
->```
+> ```js
+> function* foo() {
+>     for (let index = 0; index < 10; index++) {
+>         yield index
+>     }
+> }
+> const res = foo()
+> for (let index = 0; index < 10; index++) {
+>     console.log(res.next().value);
+> }
+> ```
 
 # Promise
 
